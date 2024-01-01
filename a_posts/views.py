@@ -15,11 +15,10 @@ def home_view(request, tag=None):
     else:
         posts = Post.objects.all()
         
-    categories = Tag.objects.all()
+
     
     context = {
         'posts': posts,
-        'categories': categories,
         'tag': tag,
     }
     return render(request, "a_posts/home.html", context)
@@ -98,6 +97,7 @@ def post_page_view(request, pk):
     
     commentform = CommentCreateForm()
     replyform = ReplyCreateForm()
+    
     
     if request.htmx:
         if 'top' in request.GET:
