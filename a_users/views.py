@@ -8,6 +8,7 @@ from django.http import Http404
 from django.db.models import Count
 from django.contrib.auth.models import User
 from a_posts.forms import ReplyCreateForm
+from a_inbox.forms import InboxNewMessageForm
 from .forms import *
 
 def profile_view(request, username=None):
@@ -32,9 +33,12 @@ def profile_view(request, username=None):
             posts = profile.user.likedposts.order_by('-likedpost__created')
         return render(request, 'snippets/loop_profile_posts.html', {'posts':posts})
     
+    new_message_form = InboxNewMessageForm()
+    
     context = {
         'profile': profile, 
         'posts': posts, 
+        'new_message_form': new_message_form,
     }
     
     return render(request, 'a_users/profile.html', context)
