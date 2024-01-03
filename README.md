@@ -1,3 +1,5 @@
-# Biscotty's Workshop v3
+# Biscotty's Workshop base
 
-## Django, Alpine, HTMX
+Django, HTMX, Alpine
+
+# Credit to [Andreas Jud](https://www.youtube.com/@ajudmeister) and his wonderful videos.
